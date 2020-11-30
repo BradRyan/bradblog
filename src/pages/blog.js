@@ -12,7 +12,7 @@ const Blog = ({ data }) => {
       <h2>Blog</h2>
 
       {blogData.map(blog => (
-        <Link key={blog.id} to={`/blog/${blog.slug}`}>
+        <Link key={blog.id} to={blog.fields.slug}>
           <h3>
             {blog.frontmatter.title} <span>— {blog.frontmatter.date}</span>
           </h3>
