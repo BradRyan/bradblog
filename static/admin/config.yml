@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+  site_url: https://bradryan.me
+
+# https://www.netlifycms.org/docs/add-to-your-site/#editorial-workflow
+# [optional] adds an interface for drafting, reviewing, and approving posts
+publish_mode: editorial_workflow
+
+media_folder: "static/images/uploads" # specifies where uploaded files are saved in the repo
+public_folder: "/images/uploads" # indicates where they are found in the published site.
+
+# https://www.netlifycms.org/docs/add-to-your-site/#collections
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Featured Post",
+          name: "featuredpost",
+          widget: "boolean",
+          required: false,
+        }
+      - {
+          label: "Featured Image",
+          name: "featuredimage",
+          widget: image,
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
