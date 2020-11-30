@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: First post
+title: First post TITLE
 date: 2020-11-30T04:25:38.457Z
 description: This is a test
 ---
